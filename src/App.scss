@@ -1,5 +1,11 @@
-.App {
+
+
+.centred{
   text-align: center;
+}
+
+.App {
+  @extend .centred;
 }
 
 .App-logo {
@@ -36,3 +42,17 @@
     transform: rotate(360deg);
   }
 }
+.app-wrapper {
+  margin: 0 auto;
+  display: grid;
+  width:auto;
+  grid-template-areas:
+  'h'
+  'n'
+  'c';
+  grid-template-rows: 2fr 1fr 7fr;
+  
+}
+.app-wrapper-content {
+    grid-area: c;
+  }

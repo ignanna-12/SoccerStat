@@ -1,0 +1,19 @@
+
+.block {
+    grid-area: h;
+    height: 200px;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+ }
+.block .h1 {
+    text-align:left;
+    color: navy;
+    font-family: Impact;
+    font-size: 100px;
+    line-height: 80px;
+}
+
+.block .img {
+    width: 800px;
+}

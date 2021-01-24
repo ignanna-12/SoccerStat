@@ -2,34 +2,26 @@ import logo from './logo.svg';
 import './App.scss';
 import 'antd/dist/antd.css';
 import React from 'react';
-import { Button, DatePicker, Space } from 'antd';
+import Header from './components/header/Header';
+import Navbar from './components/navbar/Navbar';
+import './App.scss';
+import { Route } from 'react-router-dom';
+import ListOfLeagues from './components/listOfLeagues/ListOfLeagues';
+import ListOfTeams from './components/listOfTeams/ListOfTeams';
+import LeagueCalendar from './components/leagueCalendar/LeagueCalendar';
+import TeamCalendar from './components/teamCalendar/TeamCalendar';
 
 function App() {
-  function onChange(date, dateString) {}
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button type="primary">Works for me</Button>
-      </header>
-      <Space direction="vertical">
-        <DatePicker onChange={onChange} />
-        <DatePicker onChange={onChange} picker="week" />
-        <DatePicker onChange={onChange} picker="month" />
-        <DatePicker onChange={onChange} picker="quarter" />
-        <DatePicker onChange={onChange} picker="year" />
-      </Space>
+    <div className="app-wrapper">
+      <Header />
+      <Navbar />
+      <div className="app-wrapper-content">
+        <Route path="/Leagues" component={ListOfLeagues} />
+        <Route path="/Teams" component={ListOfTeams} />
+        <Route path="/LeagueCalendar" component={LeagueCalendar} />
+        <Route path="/TeamCalendar" component={TeamCalendar} />
+      </div>
     </div>
   );
 }
