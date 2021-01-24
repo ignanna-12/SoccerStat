@@ -20,9 +20,11 @@
     cursor: pointer;
 }
 .block .button:hover {
-    background:skyblue;
+    background:turquoise;
+    cursor: pointer;
 }
 .block .button:focus {
     background:skyblue;
+    cursor: pointer;
 }
 
