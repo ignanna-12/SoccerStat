@@ -6,11 +6,12 @@ import { compose } from 'redux';
 import { Input, Space } from 'antd';
 import s from './Teams.module.scss';
 const { Search } = Input;
+import { requestTeams } from '../../redux/teams-reducer';
 
 class TeamsContainer extends React.Component {
-  // componentDidMount() {
-  //   this.props.mapStateToProps();
-  // }
+  componentDidMount() {
+    this.props.requestTeams();
+  }
   render() {
     const onSearch = (value) => console.log(value);
     return (
@@ -30,8 +31,8 @@ class TeamsContainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     teams: state.teamsPage.teams,
-    totalTeamsCount: state.teamsPage.totalTeamsCount,
+    totalTeamsCount: state.teamsPage.count,
   };
 };
 
-export default compose(connect(mapStateToProps))(TeamsContainer);
+export default compose(connect(mapStateToProps, { requestTeams }))(TeamsContainer);

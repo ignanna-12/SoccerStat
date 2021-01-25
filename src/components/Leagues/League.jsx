@@ -4,7 +4,7 @@ import s from './Leagues.module.scss';
 let League = ({ league, count }) => {
   return (
     <div>
-      <span className={s.block}>
+      <span>
         <div>{league}</div>
       </span>
     </div>

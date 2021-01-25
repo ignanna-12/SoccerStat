@@ -1,5 +1,11 @@
+import { getTeams } from '../api/api';
+
 let initialState = {
-  teams: ['Команда1', 'Команда2', 'Команда3'],
+  teams: [
+    { id: 1, name: 'Команда1' },
+    { id: 2, name: 'Команда2' },
+    { id: 3, name: 'Команда3' },
+  ],
   totalTeamsCount: 3,
   year: 2000,
 };
@@ -25,4 +31,12 @@ export const setTotalTeamsCount = (totalTeamsCount) => ({
   count: totalTeamsCount,
 });
 export const setYear = (year) => ({ type: 'SET_YEAR', year });
+
+export const requestTeams = () => {
+  return async (dispatch) => {
+    let data = await getTeams();
+    dispatch(setTeams(data.teams));
+    dispatch(setTotalTeamsCount(data.count));
+  };
+};
 export default teamsReducer;

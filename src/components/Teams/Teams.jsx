@@ -5,7 +5,7 @@ let Teams = (props) => {
   return (
     <div>
       {props.teams.map((t) => (
-        <Team team={t} key={t.id} />
+        <Team team={t.name} key={t.id} />
       ))}
       {/* {props.count} */}
     </div>
