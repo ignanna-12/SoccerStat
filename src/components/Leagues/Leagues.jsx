@@ -4,9 +4,19 @@ import League from './League';
 let Leagues = (props) => {
   return (
     <div>
-      {props.leagues.map((l) => (
-        <League league={l.name} key={l.id} />
-      ))}
+      {/* {console.log(props.leagues.filter((l) => l.currentSeason == null))} */}
+      {props.competitions &&
+        props.competitions.map((l, i) => (
+          <League
+            competition={l.name}
+            key={l.id}
+            season={
+              props.competitions[i].currentSeason
+                ? props.competitions[i].currentSeason.endDate
+                : ' '
+            }
+          />
+        ))}
       {/* {props.count} */}
     </div>
   );

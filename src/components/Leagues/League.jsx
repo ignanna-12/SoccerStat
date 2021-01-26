@@ -1,11 +1,14 @@
 import React from 'react';
 import s from './Leagues.module.scss';
 
-let League = ({ league, count }) => {
+let League = ({ competition, count, season }) => {
   return (
     <div>
       <span>
-        <div>{league}</div>
+        <div>
+          {competition}
+          {season}
+        </div>
       </span>
     </div>
   );

@@ -7,7 +7,7 @@ let initialState = {
     { id: 3, name: 'Лига3' },
   ],
   totalLeaguesCount: 3,
-  year: 2000,
+  currentSeason: { endDate: null },
 };
 
 const leaguesReducer = (state = initialState, action) => {
@@ -18,9 +18,7 @@ const leaguesReducer = (state = initialState, action) => {
     case 'SET_TOTAL_LEAGUES_COUNT': {
       return { ...state, totalLeaguesCount: action.totalLeaguesCount };
     }
-    case 'SET_YEAR': {
-      return { ...state, year: action.year };
-    }
+
     default:
       return state;
   }
@@ -37,7 +35,21 @@ export const requestCompetitions = () => {
     let data = await getCompetitions();
     dispatch(setLeagues(data.competitions));
     dispatch(setTotalLeaguesCount(data.count));
+    //dispatch(setYear(data.competitions.currentSeason.endDate));
   };
+};
+
+export const selectCompetitionsByYear = (year = 2020, competitions) => {
+  console.log(competitions);
+  if (competitions) {
+    const comp = competitions.filter((i) => {
+      return i.currentSeason ? new Date(i.currentSeason.endDate).getFullYear() === +year : false;
+    });
+    console.log(comp);
+    return comp;
+  } else {
+    return [];
+  }
 };
 
 export default leaguesReducer;

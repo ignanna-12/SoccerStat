@@ -5,7 +5,18 @@ import { compose } from 'redux';
 import { Input } from 'antd';
 import s from './Leagues.module.scss';
 const { Search } = Input;
-import { requestCompetitions } from './../../redux/leagues-reducer';
+import { requestCompetitions, selectCompetitionsByYear } from './../../redux/leagues-reducer';
+
+// const selectCompetitionsByYear = (year = 2020, competitions) => {
+//   console.log(competitions);
+//   if (competitions) {
+//     return competitions.filter((i) => {
+//       return new Date(i.curretSeason.endDate).getFullYear() === +year;
+//     });
+//   } else {
+//     return [];
+//   }
+// };
 
 class LeaguesContainer extends React.Component {
   componentDidMount() {
@@ -16,7 +27,11 @@ class LeaguesContainer extends React.Component {
     return (
       <div>
         <Search className={s.search} placeholder="Название лиги" onSearch={onSearch} enterButton />
-        <Leagues count={this.props.totalLeaguesCount} leagues={this.props.competitions} />
+        <Leagues
+          count={this.props.totalLeaguesCount}
+          //competitions={this.props.competitions}
+          competitions={selectCompetitionsByYear(2020, this.props.competitions)}
+        />
       </div>
     );
   }
