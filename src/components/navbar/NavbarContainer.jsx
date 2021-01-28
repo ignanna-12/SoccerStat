@@ -5,11 +5,12 @@ import s from './Navbar.module.css';
 import { Select } from 'antd';
 import { setSeason } from '../../redux/user-setting-reducer';
 import Navbar from './Navbar';
+import store from '../../redux/redux-store';
 
 const { Option } = Select;
 
 const handleChange = (value) => {
-  setSeason(value);
+  store.dispatch(setSeason(value));
 };
 
 class NavbarContainer extends React.Component {

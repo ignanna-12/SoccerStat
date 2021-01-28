@@ -20,7 +20,7 @@ export const getCompetitions = () => {
 };
 
 export const getLeagueCalendar = (id = '2021', dateFrom = '', dateTo = '') => {
-  return instance.get('competitions/2001/matches').then((response) => {
+  return instance.get('competitions/' + id + '/matches').then((response) => {
     return response.data;
   });
 };

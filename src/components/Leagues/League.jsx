@@ -6,10 +6,7 @@ let League = ({ competition, season }) => {
   return (
     <div>
       <NavLink to="/LeagueCalendar">
-        <div>
-          {competition}
-          {season}
-        </div>
+        <div>{competition}</div>
       </NavLink>
     </div>
   );
