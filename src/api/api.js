@@ -18,3 +18,9 @@ export const getCompetitions = () => {
     return response.data;
   });
 };
+
+export const getLeagueCalendar = (id = '2021', dateFrom = '', dateTo = '') => {
+  return instance.get('competitions/2001/matches').then((response) => {
+    return response.data;
+  });
+};

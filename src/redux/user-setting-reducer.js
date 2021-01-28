@@ -1,29 +1,28 @@
 let initialState = {
-  season: 2000,
+  season: '2020',
+  selectedTeam: ' ',
+  selectedLeague: ' ',
+  selectedStartDay: '',
+  selectedEndDay: '',
 };
 
 const userSettingReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_SEASON': {
-      return { ...state, season: season };
+      return { ...state, season: action.season };
+    }
+    case 'SET_SELECTED_LEAGUE': {
+      return { ...state, selectedLeague: action.selectedLeague };
     }
     default:
       return state;
   }
 };
 
-export const setSeason = (season) => ({ type: 'SET_SEASON', teams });
-export const setTotalTeamsCount = (totalTeamsCount) => ({
-  type: 'SET_TOTAL_TEAMS_COUNT',
-  count: totalTeamsCount,
+export const setSeason = (season) => ({ type: 'SET_SEASON', season });
+export const setSelectedLeague = (selectedLeague) => ({
+  type: 'SET_SELECTED_LEAGUE',
+  selectedLeague,
 });
-export const setYear = (year) => ({ type: 'SET_YEAR', year });
 
-export const requestTeams = () => {
-  return async (dispatch) => {
-    let data = await getTeams();
-    dispatch(setTeams(data.teams));
-    dispatch(setTotalTeamsCount(data.count));
-  };
-};
 export default userSettingReducer;

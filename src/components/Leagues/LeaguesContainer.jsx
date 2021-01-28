@@ -7,17 +7,6 @@ import s from './Leagues.module.scss';
 const { Search } = Input;
 import { requestCompetitions, selectCompetitionsByYear } from './../../redux/leagues-reducer';
 
-// const selectCompetitionsByYear = (year = 2020, competitions) => {
-//   console.log(competitions);
-//   if (competitions) {
-//     return competitions.filter((i) => {
-//       return new Date(i.curretSeason.endDate).getFullYear() === +year;
-//     });
-//   } else {
-//     return [];
-//   }
-// };
-
 class LeaguesContainer extends React.Component {
   componentDidMount() {
     this.props.requestCompetitions();
@@ -30,7 +19,7 @@ class LeaguesContainer extends React.Component {
         <Leagues
           count={this.props.totalLeaguesCount}
           //competitions={this.props.competitions}
-          competitions={selectCompetitionsByYear(2020, this.props.competitions)}
+          competitions={selectCompetitionsByYear(this.props.season, this.props.competitions)}
         />
       </div>
     );
@@ -41,6 +30,7 @@ let mapStateToProps = (state) => {
   return {
     competitions: state.leaguesPage.competitions,
     totalLeaguesCount: state.leaguesPage.totalLeaguesCount,
+    season: state.userSetting.season,
   };
 };
 

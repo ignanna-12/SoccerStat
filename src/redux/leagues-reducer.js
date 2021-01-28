@@ -8,6 +8,7 @@ let initialState = {
   ],
   totalLeaguesCount: 3,
   currentSeason: { endDate: null },
+  season: '2019',
 };
 
 const leaguesReducer = (state = initialState, action) => {
@@ -18,11 +19,14 @@ const leaguesReducer = (state = initialState, action) => {
     case 'SET_TOTAL_LEAGUES_COUNT': {
       return { ...state, totalLeaguesCount: action.totalLeaguesCount };
     }
-
+    case 'SET_SEASON': {
+      return { ...state, season: action.season };
+    }
     default:
       return state;
   }
 };
+export const setSeason = (season) => ({ type: 'SET_SEASON', season });
 export const setLeagues = (competitions) => ({ type: 'SET_LEAGUES', competitions });
 export const setTotalLeaguesCount = (totalLeaguesCount) => ({
   type: 'SET_TOTAL_LEAGUES_COUNT',
@@ -35,17 +39,17 @@ export const requestCompetitions = () => {
     let data = await getCompetitions();
     dispatch(setLeagues(data.competitions));
     dispatch(setTotalLeaguesCount(data.count));
-    //dispatch(setYear(data.competitions.currentSeason.endDate));
   };
 };
 
 export const selectCompetitionsByYear = (year = 2020, competitions) => {
-  console.log(competitions);
   if (competitions) {
     const comp = competitions.filter((i) => {
-      return i.currentSeason ? new Date(i.currentSeason.endDate).getFullYear() === +year : false;
+      return i.currentSeason
+        ? new Date(i.currentSeason.endDate).getFullYear() === +year ||
+            new Date(i.currentSeason.startDate).getFullYear() === +year
+        : false;
     });
-    console.log(comp);
     return comp;
   } else {
     return [];

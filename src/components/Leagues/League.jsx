@@ -1,15 +1,16 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import s from './Leagues.module.scss';
 
-let League = ({ competition, count, season }) => {
+let League = ({ competition, season }) => {
   return (
     <div>
-      <span>
+      <NavLink to="/LeagueCalendar">
         <div>
           {competition}
           {season}
         </div>
-      </span>
+      </NavLink>
     </div>
   );
 };

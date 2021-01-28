@@ -10,16 +10,18 @@ import LeagueCalendar from './components/leagueCalendar/LeagueCalendar';
 import TeamCalendar from './components/teamCalendar/TeamCalendar';
 import TeamsContainer from './components/Teams/TeamsContainer';
 import LeaguesContainer from './components/Leagues/LeaguesContainer';
+import NavbarContainer from './components/navbar/NavbarContainer';
+import LeaguesCalendarContainer from './components/leagueCalendar/LeaguesCalendarContainer';
 
 function App() {
   return (
     <div className="app-wrapper">
       <Header />
-      <Navbar />
+      <NavbarContainer />
       <div className="app-wrapper-content">
         <Route path="/Leagues" component={LeaguesContainer} />
         <Route path="/Teams" component={TeamsContainer} />
-        <Route path="/LeagueCalendar" component={LeagueCalendar} />
+        <Route path="/LeagueCalendar" component={LeaguesCalendarContainer} />
         <Route path="/TeamCalendar" component={TeamCalendar} />
       </div>
     </div>
