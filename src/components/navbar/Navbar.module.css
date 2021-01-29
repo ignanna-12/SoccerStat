@@ -1,12 +1,18 @@
 .block {
     grid-area: n;
-    height: 50px;
     display: flex;
-    align-items: left;
-    justify-content: left;
- }
-
-.block .button {
+    justify-content: space-between;
+    align-items: center;
+  }
+  .block__buttons {
+    display: flex;
+  }
+  
+  .block__select {
+    display: flex;
+  }
+  
+  .block .button {
     border-radius: 20px;
     border-color: navy;
     width: 222px;
@@ -18,17 +24,15 @@
     font-size: 16px;
     line-height: 10px;
     cursor: pointer;
-}
-.block .button:hover {
-    background:turquoise;
+    margin: 0px 5px 0px 5px;
+    outline: none;
+  }
+  .block .button:hover {
+    background: turquoise;
     cursor: pointer;
-}
-.block .button:focus {
-    background:skyblue;
+  }
+  .block .button:focus {
+    background: skyblue;
     cursor: pointer;
-}
-.h3 {
-    color:navy;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
+    outline: none;
+  }

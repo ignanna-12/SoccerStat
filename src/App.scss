@@ -50,9 +50,11 @@
   'h'
   'n'
   'c';
-  grid-template-rows: 2fr 1fr 7fr;
+  row-gap: 15px; ;
   
 }
 .app-wrapper-content {
-    grid-area: c;
-  }
+  grid-area: c;
+  display: flex;
+  justify-content: center;
+}

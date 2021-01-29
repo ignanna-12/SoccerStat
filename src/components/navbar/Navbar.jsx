@@ -6,7 +6,7 @@ import { setSeason } from '../../redux/leagues-reducer';
 
 const Navbar = () => {
   return (
-    <div className={s.block}>
+    <div className={s.block_buttons}>
       <NavLink to="/Leagues">
         <button className={s.button}>СПИСОК ЛИГ</button>
       </NavLink>

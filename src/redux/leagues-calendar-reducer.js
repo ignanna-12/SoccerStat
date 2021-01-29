@@ -77,7 +77,7 @@ export const setLeaguesAwayTeam = (awayTeam) => ({ type: 'SET_LEAGUES_AWAYTEAM',
 
 export const requestLeagueCalendar = () => {
   return async (dispatch) => {
-    const id = store.getState().userSetting.season;
+    const id = store.getState().userSetting.selectedLeague;
     let data = await getLeagueCalendar(id);
     dispatch(setLeaguesCalendar(data.matches.slice(0, 100)));
     dispatch(setLeaguesName(data.competition.name));

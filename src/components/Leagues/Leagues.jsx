@@ -1,15 +1,18 @@
 import React from 'react';
 import League from './League';
+import s from './Leagues.module.scss';
 
 let Leagues = (props) => {
   return (
-    <div>
-      {/* {console.log(props.leagues.filter((l) => l.currentSeason == null))} */}
+    <div className={s.league_container}>
+      {/* console.log(props) */}
       {props.competitions &&
         props.competitions.map((l, i) => (
           <League
             competition={l.name}
             key={l.id}
+            id={l.id}
+            ensignUrl={l.area.ensignUrl}
             season={
               props.competitions[i].currentSeason
                 ? props.competitions[i].currentSeason.endDate
@@ -17,6 +20,7 @@ let Leagues = (props) => {
             }
           />
         ))}
+
       {/* {props.count} */}
     </div>
   );

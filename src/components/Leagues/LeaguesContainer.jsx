@@ -12,7 +12,17 @@ class LeaguesContainer extends React.Component {
     this.props.requestCompetitions();
   }
   render() {
-    const onSearch = (value) => console.log(value);
+    const onSearch = (e) => {
+      // const value = e.target.value.toLowerCase();
+      // const filter = data.filter((competititons) => {
+      //   return competititons.name.toLowerCase().includes(value);
+      // });
+      // update({
+      //   data: filter,
+      //   active: 0,
+      //   term: value,
+      // });
+    };
     return (
       <div>
         <Search className={s.search} placeholder="Название лиги" onSearch={onSearch} enterButton />

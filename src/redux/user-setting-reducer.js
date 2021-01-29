@@ -1,7 +1,7 @@
 let initialState = {
-  season: '2020',
+  season: '2015',
   selectedTeam: ' ',
-  selectedLeague: ' ',
+  selectedLeague: '2000',
   selectedStartDay: '',
   selectedEndDay: '',
 };
