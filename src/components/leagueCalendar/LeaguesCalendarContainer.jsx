@@ -3,14 +3,30 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { requestLeagueCalendar } from './../../redux/leagues-calendar-reducer';
 import LeagueCalendar from './LeagueCalendar';
+import { DatePicker, Space } from 'antd';
+import s from './LeaguesCalendar.module.scss';
+import store from '../../redux/redux-store';
+import { setSelectedDateTo, setSelectedDateFrom } from '../../redux/user-setting-reducer';
 
+const handleChangeFrom = (value) => {
+  store.dispatch(setSelectedDateFrom(value));
+};
+const handleChangeTo = (value) => {
+  store.dispatch(setSelectedDateTo(value));
+};
 class LeaguesCalendarContainer extends React.Component {
   componentDidMount() {
     this.props.requestLeagueCalendar();
   }
+
   render() {
     return (
-      <div>
+      <div className={s.block}>
+        {' '}
+        Показать, начиная с:
+        <Space direction="vertical">
+          <DatePicker onChange={handleChangeFrom} /> до: <DatePicker onChange={handleChangeTo} />
+        </Space>
         <LeagueCalendar
           name={this.props.name}
           matches={this.props.matches}

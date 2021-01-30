@@ -5,6 +5,10 @@
     text-align: left;
 }
 .blocks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
     font-family: cursive;
     color: navy;
     font-size: medium;
@@ -16,7 +20,7 @@
 }
 .img {
     width: 50px;
-    margin-left: 20px;
+    margin-left: 80px;
 }
 
 .league_container {

@@ -1,8 +1,22 @@
 .block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 10px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: navy;
-    font-size: large;
-    text-align: center;
+    font-size: medium;
+    text-align: left;
+}
+.m {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-family: cursive;
+    color: navy;
+    font-size: medium;
+    text-align: left;
 }
 
 .search {
@@ -11,4 +25,7 @@
 }
 .img {
     width: 100px;
+}
+.h1 {
+    color: navy;
 }

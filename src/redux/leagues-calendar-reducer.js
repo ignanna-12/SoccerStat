@@ -4,7 +4,7 @@ import store from './redux-store';
 let initialState = {
   matches: [],
   competitions: {},
-  name: 'обновите страницу:)',
+  name: '',
   area: {},
   ensignUrl: '',
   utcDate: '',
@@ -78,8 +78,10 @@ export const setLeaguesAwayTeam = (awayTeam) => ({ type: 'SET_LEAGUES_AWAYTEAM',
 export const requestLeagueCalendar = () => {
   return async (dispatch) => {
     const id = store.getState().userSetting.selectedLeague;
-    let data = await getLeagueCalendar(id);
-    dispatch(setLeaguesCalendar(data.matches.slice(0, 100)));
+    const dateFrom = store.getState().userSetting.selectedDateFrom;
+    const dateTo = store.getState().userSetting.selectedDateTo;
+    let data = await getLeagueCalendar(id, dateFrom, dateTo);
+    dispatch(setLeaguesCalendar(data.matches));
     dispatch(setLeaguesName(data.competition.name));
     // dispatch(setLeaguesEnsignUrl(data.matches[0].competition.area.ensignUrl));
     // dispatch(setLeaguesUtcDate(data.matches[0].utcDate));

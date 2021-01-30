@@ -1,11 +1,12 @@
 .block {
     grid-area: n;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-self: center;
+    justify-content: center;
   }
   .block__buttons {
     display: flex;
+    font-size: 150px;
   }
   
   .block__select {
@@ -13,22 +14,22 @@
   }
   
   .block .button {
-    border-radius: 20px;
+    border-radius: 50px;
     border-color: navy;
-    width: 222px;
+    width: 200px;
     height: 50px;
     border-width: 5px;
     text-align: center;
     color: navy;
     font-family: Impact;
     font-size: 16px;
-    line-height: 10px;
+    line-height: 20px;
     cursor: pointer;
     margin: 0px 5px 0px 5px;
     outline: none;
   }
   .block .button:hover {
-    background: turquoise;
+    background: cornflowerblue;
     cursor: pointer;
   }
   .block .button:focus {
