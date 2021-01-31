@@ -8,21 +8,45 @@ import s from './Teams.module.scss';
 const { Search } = Input;
 import { requestTeams } from '../../redux/teams-reducer';
 
+// const onSearch = (e, teams) => {
+//   console.log(e);
+//   const value = e.target.value.toLowerCase();
+//   const filter = teams.filter((teams) => {
+//     return teams.name.toLowerCase().includes(value);
+//   });
+// };
+
+const filterTeams = (teams, filterValue) => {
+  if (filterValue === '') {
+    return teams;
+  }
+  const filterTeams = teams.filter((teams) => {
+    return teams.name.toLowerCase().startsWith(filterValue);
+  });
+  return filterTeams;
+};
+
 class TeamsContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { filterValue: '' };
+  }
   componentDidMount() {
     this.props.requestTeams();
   }
   render() {
-    const onSearch = (value) => console.log(value);
     return (
       <div>
         <Search
           className={s.search}
           placeholder="Название команды"
-          onSearch={onSearch}
+          onChange={(e) => this.setState({ filterValue: e.target.value.toLowerCase() })}
           enterButton
         />
-        <Teams count={this.props.totalTeamsCount} teams={this.props.teams} />
+        <Teams
+          count={this.props.totalTeamsCount}
+          teams={filterTeams(this.props.teams, this.state.filterValue)}
+        />
       </div>
     );
   }

@@ -70,7 +70,7 @@ export const requestLeagueCalendar = () => {
     const dateFrom = store.getState().userSetting.selectedDateFrom;
     const dateTo = store.getState().userSetting.selectedDateTo;
     let data = await getLeagueCalendar(id, dateFrom, dateTo);
-    dispatch(setLeaguesCalendar(data.matches));
+    dispatch(setLeaguesCalendar(data.matches.slice(0, 100)));
     dispatch(setLeaguesName(data.competition.name));
   };
 };

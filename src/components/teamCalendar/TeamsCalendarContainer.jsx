@@ -8,16 +8,16 @@ import store from '../../redux/redux-store';
 import { setSelectedDateTo, setSelectedDateFrom } from '../../redux/user-setting-reducer';
 import s from './TeamsCalendar.module.scss';
 
-const handleChangeFrom = (value) => {
-  store.dispatch(setSelectedDateFrom(value));
+const handleChangeFrom = (e, d) => {
+  store.dispatch(setSelectedDateFrom(d));
 };
-const handleChangeTo = (value) => {
-  store.dispatch(setSelectedDateTo(value));
+const handleChangeTo = (e, d) => {
+  store.dispatch(setSelectedDateTo(d));
 };
 
 class TeamsCalendarContainer extends React.Component {
   componentDidMount() {
-    this.props.requestTeamCalendar(this.props.id);
+    this.props.requestTeamCalendar(this.props.id, this.props.dateFrom, this.props.dateTo);
   }
 
   render() {
@@ -52,6 +52,8 @@ let mapStateToProps = (state) => {
   return {
     matches: state.teamsCalendar.matches,
     id: state.userSetting.selectedTeam,
+    dateFrom: state.userSetting.dateFrom,
+    dateTo: state.userSetting.dateTo,
   };
 };
 export default compose(connect(mapStateToProps, { requestTeamCalendar }))(TeamsCalendarContainer);

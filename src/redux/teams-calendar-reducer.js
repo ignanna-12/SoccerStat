@@ -1,7 +1,10 @@
 import { getTeamCalendar } from '../api/api';
 
 let initialState = {
-  matches: [],
+  matches: [
+    { awayTeam: { name: '' }, homeTeam: { name: '' } },
+    { awayTeam: { name: '' }, homeTeam: { name: '' } },
+  ],
   competitions: {},
   name: '',
   area: {},
@@ -65,11 +68,9 @@ export const setSelectedTeam = (selectedTeam) => ({
   selectedTeam,
 });
 
-export const requestTeamCalendar = (selectedTeam) => {
+export const requestTeamCalendar = (selectedTeam, dateFrom, dateTo) => {
   return async (dispatch) => {
-    // const dateFrom = store.getState().userSetting.selectedDateFrom;
-    // const dateTo = store.getState().userSetting.selectedDateTo;
-    let data = await getTeamCalendar(selectedTeam);
+    let data = await getTeamCalendar(selectedTeam, dateFrom, dateTo);
     dispatch(setTeamsCalendar(data.matches));
   };
 };

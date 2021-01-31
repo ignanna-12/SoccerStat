@@ -27,8 +27,10 @@ export const getLeagueCalendar = (id = '', dateFrom = '', dateTo = '') => {
     });
 };
 
-export const getTeamCalendar = (id) => {
-  return instance.get('teams/' + id + '/matches').then((response) => {
-    return response.data;
-  });
+export const getTeamCalendar = (id = '', dateFrom = '', dateTo = '') => {
+  return instance
+    .get('teams/' + id + '/matches?dateFrom=' + dateFrom + '&dateTo=' + dateTo)
+    .then((response) => {
+      return response.data;
+    });
 };
