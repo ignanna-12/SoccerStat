@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import store from '../../redux/redux-store';
 import s from './Leagues.module.scss';
 import { setSelectedLeague } from '../../redux/user-setting-reducer';
-import unitedFleg from '../../images/all-poker-rooms.png';
+import unitedFlag from '../../images/all-poker-rooms.png';
 
 let League = ({ competition, season, id, ensignUrl }) => {
   const handleChange = (e) => {
@@ -29,14 +29,14 @@ let League = ({ competition, season, id, ensignUrl }) => {
         }}
       >
         {competition}
-        <img className={s.img} src={ensignUrl || unitedFleg}></img>
+        <img className={s.img} src={ensignUrl || unitedFlag}></img>
       </NavLink>
     );
   } else {
     return (
       <div className={s.blocks}>
         {competition}
-        <img className={s.img} src={ensignUrl || unitedFleg}></img>
+        <img className={s.img} src={ensignUrl || unitedFlag}></img>
       </div>
     );
   }

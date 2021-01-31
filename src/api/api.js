@@ -26,3 +26,9 @@ export const getLeagueCalendar = (id = '', dateFrom = '', dateTo = '') => {
       return response.data;
     });
 };
+
+export const getTeamCalendar = (id = '', dateFrom = '', dateTo = '') => {
+  return instance.get('teams/57/matches').then((response) => {
+    return response.data;
+  });
+};

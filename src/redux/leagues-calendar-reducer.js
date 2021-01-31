@@ -10,17 +10,6 @@ let initialState = {
   utcDate: '',
   homeTeam: '',
   awayTeam: '',
-  //   {
-  //     competitions: { name: '', area: { name: '', ensignUrl: '' } },
-  //     // {
-  //     //   competitions: { name: '', area: { name: '', ensignUrl: '' } },
-  //     //   season: { startDate: '', endDate: '' },
-  //     //   utcDate: '',
-  //     //   homeTeam: '',
-  //     //   awayTeam: '',
-  //     // },
-  //   },
-  // ],
 };
 
 const leaguesCalendarReducer = (state = initialState, action) => {
@@ -83,10 +72,6 @@ export const requestLeagueCalendar = () => {
     let data = await getLeagueCalendar(id, dateFrom, dateTo);
     dispatch(setLeaguesCalendar(data.matches));
     dispatch(setLeaguesName(data.competition.name));
-    // dispatch(setLeaguesEnsignUrl(data.matches[0].competition.area.ensignUrl));
-    // dispatch(setLeaguesUtcDate(data.matches[0].utcDate));
-    // dispatch(setLeaguesHomeTeam(data.matches[0].homeTeam.name));
-    // dispatch(setLeaguesAwayTeam(data.matches[0].awayTeam.name));
   };
 };
 

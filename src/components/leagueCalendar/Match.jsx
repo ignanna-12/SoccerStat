@@ -23,7 +23,7 @@ let Match = ({ homeTeam, awayTeam, date }) => {
   return (
     <div className={s.m}>
       <p>{homeTeam}</p> <p>:</p> <p>{awayTeam}</p>
-      <p>
+      <p className={s.date}>
         {day_value} {months[month_value]} {year_value}
       </p>
     </div>

@@ -19,13 +19,31 @@
     text-align: left;
 }
 
-.search {
-    width: 200px;
+.top_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: navy;
+    font-size: medium;
+    text-align: left;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: navy;
+    margin-right: 30px;
 }
 .img {
     width: 100px;
 }
 .h1 {
     color: navy;
+}
+
+.date{
+    font-size: small;
 }

@@ -7,6 +7,7 @@ import { DatePicker, Space } from 'antd';
 import s from './LeaguesCalendar.module.scss';
 import store from '../../redux/redux-store';
 import { setSelectedDateTo, setSelectedDateFrom } from '../../redux/user-setting-reducer';
+import SelectAvailableLeague from './SelectAvailableLeague';
 
 const handleChangeFrom = (value) => {
   store.dispatch(setSelectedDateFrom(value));
@@ -21,19 +22,15 @@ class LeaguesCalendarContainer extends React.Component {
 
   render() {
     return (
-      <div className={s.block}>
-        {' '}
-        Показать, начиная с:
-        <Space direction="vertical">
-          <DatePicker onChange={handleChangeFrom} /> до: <DatePicker onChange={handleChangeTo} />
-        </Space>
-        <LeagueCalendar
-          name={this.props.name}
-          matches={this.props.matches}
-          // homeTeam={this.props.homeTeam}
-          // awayTeam={this.props.awayTeam}
-          // ensignUrl={this.props.ensignUrl}
-        />
+      <div className={s.top_row}>
+        <div>
+          <Space direction="vertical" className={s.search}>
+            Показать, начиная с:
+            <DatePicker onChange={handleChangeFrom} /> до: <DatePicker onChange={handleChangeTo} />
+          </Space>
+          <SelectAvailableLeague />
+        </div>
+        <LeagueCalendar name={this.props.name} matches={this.props.matches} />
       </div>
     );
   }
@@ -43,10 +40,6 @@ let mapStateToProps = (state) => {
   return {
     matches: state.leaguesCalendar.matches,
     name: state.leaguesCalendar.name,
-    // ensignUrl: state.leaguesCalendar.ensignUrl,
-    // utcDate: state.leaguesCalendar.utcDate,
-    // homeTeam: state.leaguesCalendar.homeTeam,
-    // awayTeam: state.leaguesCalendar.awayTeam,
   };
 };
 
