@@ -15,7 +15,7 @@ const userSettingReducer = (state = initialState, action) => {
       return { ...state, selectedLeague: action.selectedLeague };
     }
     case 'SET_SELECTED_TEAM': {
-      return { ...state, selectedLeague: action.selectedTeam };
+      return { ...state, selectedTeam: action.selectedTeam };
     }
     case 'SET_SELECTED_DATE_FROM': {
       return { ...state, selectedDateFrom: action.selectedDateFrom };

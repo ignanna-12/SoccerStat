@@ -14,12 +14,26 @@ const handleChangeFrom = (value) => {
 const handleChangeTo = (value) => {
   store.dispatch(setSelectedDateTo(value));
 };
+
 class TeamsCalendarContainer extends React.Component {
   componentDidMount() {
-    this.props.requestTeamCalendar();
+    this.props.requestTeamCalendar(this.props.id);
   }
 
   render() {
+    const getName = () => {
+      if (
+        this.props.matches[0].awayTeam.name === this.props.matches[1].awayTeam.name ||
+        this.props.matches[0].awayTeam.name === this.props.matches[1].homeTeam.name
+      ) {
+        return this.props.matches[0].awayTeam.name;
+      } else if (
+        this.props.matches[0].homeTeam.name === this.props.matches[1].awayTeam.name ||
+        this.props.matches[0].homeTeam.name === this.props.matches[1].homeTeam.name
+      ) {
+        return this.props.matches[0].homeTeam.name;
+      }
+    };
     return (
       <div className={s.top_row}>
         <div>
@@ -28,7 +42,7 @@ class TeamsCalendarContainer extends React.Component {
             <DatePicker onChange={handleChangeFrom} /> до: <DatePicker onChange={handleChangeTo} />
           </Space>
         </div>
-        <TeamCalendar matches={this.props.matches} />
+        <TeamCalendar matches={this.props.matches} name={getName()} />
       </div>
     );
   }
@@ -37,6 +51,7 @@ class TeamsCalendarContainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     matches: state.teamsCalendar.matches,
+    id: state.userSetting.selectedTeam,
   };
 };
 export default compose(connect(mapStateToProps, { requestTeamCalendar }))(TeamsCalendarContainer);

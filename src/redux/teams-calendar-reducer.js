@@ -1,5 +1,4 @@
 import { getTeamCalendar } from '../api/api';
-import store from './redux-store';
 
 let initialState = {
   matches: [],
@@ -10,6 +9,7 @@ let initialState = {
   homeTeam: '',
   awayTeam: '',
   status: '',
+  selectedTeam: '57',
 };
 
 const teamsCalendarReducer = (state = initialState, action) => {
@@ -46,6 +46,9 @@ const teamsCalendarReducer = (state = initialState, action) => {
         awayTeam: action.awayTeam,
       };
     }
+    case 'SET_SELECTED_TEAM': {
+      return { ...state, selectedTeam: action.selectedTeam };
+    }
 
     default:
       return state;
@@ -57,13 +60,16 @@ export const setTeamsName = (name) => ({ type: 'SET_TEAM_NAME', name });
 export const setTeamsUtcDate = (utcDate) => ({ type: 'SET_TEAM_UTCDATE', utcDate });
 export const setTeamsHomeTeam = (homeTeam) => ({ type: 'SET_TEAM_HOMETEAM', homeTeam });
 export const setTeamsAwayTeam = (awayTeam) => ({ type: 'SET_TEAM_AWAYTEAM', awayTeam });
+export const setSelectedTeam = (selectedTeam) => ({
+  type: 'SET_SELECTED_TEAM',
+  selectedTeam,
+});
 
-export const requestTeamCalendar = () => {
+export const requestTeamCalendar = (selectedTeam) => {
   return async (dispatch) => {
-    const id = store.getState().userSetting.selectedTeam;
-    const dateFrom = store.getState().userSetting.selectedDateFrom;
-    const dateTo = store.getState().userSetting.selectedDateTo;
-    let data = await getTeamCalendar(id, dateFrom, dateTo);
+    // const dateFrom = store.getState().userSetting.selectedDateFrom;
+    // const dateTo = store.getState().userSetting.selectedDateTo;
+    let data = await getTeamCalendar(selectedTeam);
     dispatch(setTeamsCalendar(data.matches));
   };
 };

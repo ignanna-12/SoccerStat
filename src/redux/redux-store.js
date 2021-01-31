@@ -1,5 +1,4 @@
 import React from 'react';
-//import { createStore } from 'react-redux';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import leaguesReducer from './leagues-reducer';
 import teamsReducer from './teams-reducer';
