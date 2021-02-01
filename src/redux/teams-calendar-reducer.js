@@ -1,10 +1,8 @@
 import { getTeamCalendar } from '../api/api';
+import moment from 'moment';
 
 let initialState = {
-  matches: [
-    { awayTeam: { name: '' }, homeTeam: { name: '' } },
-    { awayTeam: { name: '' }, homeTeam: { name: '' } },
-  ],
+  matches: [],
   competitions: {},
   name: '',
   area: {},
@@ -13,6 +11,9 @@ let initialState = {
   awayTeam: '',
   status: '',
   selectedTeam: '57',
+  selectedDateFrom: moment().subtract(1, 'years').format('YYYY-MM-DD'),
+  selectedDateTo: moment().format('YYYY-MM-DD'),
+  nameSelectedTeam: 'Arsenal FC',
 };
 
 const teamsCalendarReducer = (state = initialState, action) => {
@@ -52,7 +53,15 @@ const teamsCalendarReducer = (state = initialState, action) => {
     case 'SET_SELECTED_TEAM': {
       return { ...state, selectedTeam: action.selectedTeam };
     }
-
+    case 'SET_SELECTED_DATE_FROM': {
+      return { ...state, selectedDateFrom: action.selectedDateFrom };
+    }
+    case 'SET_SELECTED_DATE_TO': {
+      return { ...state, selectedDateTo: action.selectedDateTo };
+    }
+    case 'SET_NAME_SELECTED_TEAM': {
+      return { ...state, nameSelectedTeam: action.nameSelectedTeam };
+    }
     default:
       return state;
   }
@@ -67,9 +76,22 @@ export const setSelectedTeam = (selectedTeam) => ({
   type: 'SET_SELECTED_TEAM',
   selectedTeam,
 });
+export const setSelectedDateFrom = (selectedDateFrom) => ({
+  type: 'SET_SELECTED_DATE_FROM',
+  selectedDateFrom,
+});
+export const setSelectedDateTo = (selectedDateTo) => ({
+  type: 'SET_SELECTED_DATE_TO',
+  selectedDateTo,
+});
+export const setNameSelectedTeam = (nameSelectedTeam) => ({
+  type: 'SET_NAME_SELECTED_TEAM',
+  nameSelectedTeam,
+});
 
 export const requestTeamCalendar = (selectedTeam, dateFrom, dateTo) => {
   return async (dispatch) => {
+    const testRequest = getTeamCalendar;
     let data = await getTeamCalendar(selectedTeam, dateFrom, dateTo);
     dispatch(setTeamsCalendar(data.matches));
   };

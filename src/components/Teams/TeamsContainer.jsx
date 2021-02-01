@@ -8,14 +8,6 @@ import s from './Teams.module.scss';
 const { Search } = Input;
 import { requestTeams } from '../../redux/teams-reducer';
 
-// const onSearch = (e, teams) => {
-//   console.log(e);
-//   const value = e.target.value.toLowerCase();
-//   const filter = teams.filter((teams) => {
-//     return teams.name.toLowerCase().includes(value);
-//   });
-// };
-
 const filterTeams = (teams, filterValue) => {
   if (filterValue === '') {
     return teams;

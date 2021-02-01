@@ -1,5 +1,4 @@
 import { getLeagueCalendar } from '../api/api';
-import store from './redux-store';
 
 let initialState = {
   matches: [],
@@ -10,6 +9,9 @@ let initialState = {
   utcDate: '',
   homeTeam: '',
   awayTeam: '',
+  selectedLeague: '',
+  selectedDateFrom: '',
+  selectedDateTo: '',
 };
 
 const leaguesCalendarReducer = (state = initialState, action) => {
@@ -51,6 +53,15 @@ const leaguesCalendarReducer = (state = initialState, action) => {
         awayTeam: action.awayTeam,
       };
     }
+    case 'SET_SELECTED_LEAGUE': {
+      return { ...state, selectedLeague: action.selectedLeague };
+    }
+    case 'SET_SELECTED_DATE_FROM': {
+      return { ...state, selectedDateFrom: action.selectedDateFrom };
+    }
+    case 'SET_SELECTED_DATE_TO': {
+      return { ...state, selectedDateTo: action.selectedDateTo };
+    }
 
     default:
       return state;
@@ -63,12 +74,21 @@ export const setLeaguesEnsignUrl = (ensignUrl) => ({ type: 'SET_LEAGUES_ENSIGNUR
 export const setLeaguesUtcDate = (utcDate) => ({ type: 'SET_LEAGUES_UTCDATE', utcDate });
 export const setLeaguesHomeTeam = (homeTeam) => ({ type: 'SET_LEAGUES_HOMETEAM', homeTeam });
 export const setLeaguesAwayTeam = (awayTeam) => ({ type: 'SET_LEAGUES_AWAYTEAM', awayTeam });
+export const setSelectedLeague = (selectedLeague) => ({
+  type: 'SET_SELECTED_LEAGUE',
+  selectedLeague,
+});
+export const setSelectedDateFrom = (selectedDateFrom) => ({
+  type: 'SET_SELECTED_DATE_FROM',
+  selectedDateFrom,
+});
+export const setSelectedDateTo = (selectedDateTo) => ({
+  type: 'SET_SELECTED_DATE_TO',
+  selectedDateTo,
+});
 
-export const requestLeagueCalendar = () => {
+export const requestLeagueCalendar = (id, dateFrom, dateTo) => {
   return async (dispatch) => {
-    const id = store.getState().userSetting.selectedLeague;
-    const dateFrom = store.getState().userSetting.selectedDateFrom;
-    const dateTo = store.getState().userSetting.selectedDateTo;
     let data = await getLeagueCalendar(id, dateFrom, dateTo);
     dispatch(setLeaguesCalendar(data.matches.slice(0, 100)));
     dispatch(setLeaguesName(data.competition.name));

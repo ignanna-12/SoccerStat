@@ -21,7 +21,7 @@ class SelectAvailableLeague extends React.Component {
     return (
       <div className={s.search}>
         Название лиги:
-        <Select defaultValue={this.props.selectedLeague} onChange={handleChange}>
+        <Select defaultValue={'______________________'} onChange={handleChange}>
           <Option value="2001">UEFA Champions League</Option>
           <Option value="2000">FIFA World Cup</Option>
           <Option value="2002">Bundesliga</Option>

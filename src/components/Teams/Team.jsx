@@ -3,18 +3,19 @@ import { NavLink } from 'react-router-dom';
 import s from './Teams.module.scss';
 import unitedFlag from '../../images/all-poker-rooms.png';
 import store from '../../redux/redux-store';
-import { setSelectedTeam } from '../../redux/user-setting-reducer';
+import { setSelectedTeam, setNameSelectedTeam } from '../../redux/teams-calendar-reducer';
 
 let Team = ({ team, crestUrl, id }) => {
-  const handleChange = (e) => {
-    store.dispatch(setSelectedTeam(e));
+  const handleChange = (id, team) => {
+    store.dispatch(setSelectedTeam(id));
+    store.dispatch(setNameSelectedTeam(team));
   };
   return (
     <NavLink
       className={s.team_row}
       to="/TeamCalendar"
       onClick={(e) => {
-        handleChange(id);
+        handleChange(id, team);
       }}
     >
       {team}

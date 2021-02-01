@@ -7,19 +7,39 @@ import s from './Leagues.module.scss';
 const { Search } = Input;
 import { requestCompetitions, selectCompetitionsByYear } from './../../redux/leagues-reducer';
 
+const filterLeagues = (competitions, filterValue) => {
+  if (filterValue === '') {
+    return competitions;
+  }
+  const filterLeagues = competitions.filter((competitions) => {
+    return competitions.name.toLowerCase().startsWith(filterValue);
+  });
+  return filterLeagues;
+};
+
 class LeaguesContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { filterValue: '' };
+  }
   componentDidMount() {
     this.props.requestCompetitions();
   }
   render() {
-    const onSearch = (e) => {};
     return (
       <div>
-        <Search className={s.search} placeholder="Название лиги" onSearch={onSearch} enterButton />
+        <Search
+          className={s.search}
+          placeholder="Название лиги"
+          onChange={(e) => this.setState({ filterValue: e.target.value.toLowerCase() })}
+          enterButton
+        />
         <Leagues
           count={this.props.totalLeaguesCount}
-          //competitions={this.props.competitions}
-          competitions={selectCompetitionsByYear(this.props.season, this.props.competitions)}
+          competitions={filterLeagues(
+            selectCompetitionsByYear(this.props.season, this.props.competitions),
+            this.state.filterValue
+          )}
         />
       </div>
     );
