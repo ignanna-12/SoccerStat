@@ -12,7 +12,7 @@ let initialState = {
   status: '',
   selectedTeam: '57',
   selectedDateFrom: moment().subtract(1, 'years').format('YYYY-MM-DD'),
-  selectedDateTo: moment().format('YYYY-MM-DD'),
+  selectedDateTo: moment().subtract(-1, 'years').format('YYYY-MM-DD'),
   nameSelectedTeam: 'Arsenal FC',
 };
 
@@ -91,7 +91,6 @@ export const setNameSelectedTeam = (nameSelectedTeam) => ({
 
 export const requestTeamCalendar = (selectedTeam, dateFrom, dateTo) => {
   return async (dispatch) => {
-    const testRequest = getTeamCalendar;
     let data = await getTeamCalendar(selectedTeam, dateFrom, dateTo);
     dispatch(setTeamsCalendar(data.matches));
   };

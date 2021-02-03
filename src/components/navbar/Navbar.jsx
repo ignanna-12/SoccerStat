@@ -1,13 +1,11 @@
 import React from 'react';
 import s from './Navbar.module.css';
-import { Select } from 'antd';
 import { NavLink } from 'react-router-dom';
-import { setSeason } from '../../redux/leagues-reducer';
 
-const Navbar = () => {
+const Navbar = ({ season }) => {
   return (
     <div className={s.block_buttons}>
-      <NavLink to="/Leagues">
+      <NavLink to={'/Leagues/' + season}>
         <button className={s.button}>СПИСОК ЛИГ</button>
       </NavLink>
       <NavLink to="/Teams">

@@ -11,6 +11,7 @@ import TeamsContainer from './components/Teams/TeamsContainer';
 import LeaguesContainer from './components/Leagues/LeaguesContainer';
 import NavbarContainer from './components/navbar/NavbarContainer';
 import LeaguesCalendarContainer from './components/leagueCalendar/LeaguesCalendarContainer';
+import store from './redux/redux-store';
 
 function App() {
   return (
@@ -18,10 +19,10 @@ function App() {
       <Header />
       <NavbarContainer />
       <div className="app-wrapper-content">
-        <Route path="/Leagues" component={LeaguesContainer} />
+        <Route path="/Leagues/:season?" component={LeaguesContainer} />
         <Route path="/Teams" component={TeamsContainer} />
-        <Route path="/LeagueCalendar" component={LeaguesCalendarContainer} />
-        <Route path="/TeamCalendar" component={TeamsCalendarContainer} />
+        <Route path="/LeagueCalendar/:id?" component={LeaguesCalendarContainer} />
+        <Route path="/TeamCalendar/:id?" component={TeamsCalendarContainer} />
       </div>
     </div>
   );

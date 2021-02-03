@@ -14,7 +14,7 @@ let League = ({ competition, season, id, ensignUrl }) => {
     return (
       <NavLink
         className={s.league_row}
-        to="/LeagueCalendar"
+        to={'/LeagueCalendar/' + id}
         onClick={(e) => {
           handleChange(id);
         }}

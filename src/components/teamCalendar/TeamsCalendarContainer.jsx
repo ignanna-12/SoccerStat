@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import {
   requestTeamCalendar,
-  setSelectedDateTo,
   setSelectedDateFrom,
+  setSelectedDateTo,
 } from './../../redux/teams-calendar-reducer';
 import TeamCalendar from './TeamCalendar';
 import { DatePicker, Space } from 'antd';
@@ -12,26 +12,21 @@ import s from './TeamsCalendar.module.scss';
 import moment from 'moment';
 
 class TeamsCalendarContainer extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { dateFrom: '', dateTo: '' };
-  // }
-
   handleDateFromChange(object, string) {
     this.props.requestTeamCalendar(this.props.id, string, this.props.dateTo);
+    this.props.setSelectedDateFrom(string);
   }
   handleDateToChange(object, string) {
     this.props.requestTeamCalendar(this.props.id, this.props.dateFrom, string);
+    this.props.setSelectedDateTo(string);
   }
   componentDidMount() {
-    this.props.requestTeamCalendar(this.props.id, this.props.dateFrom, this.props.dateTo);
+    this.props.requestTeamCalendar(
+      this.props.match.params.id,
+      this.props.dateFrom,
+      this.props.dateTo
+    );
   }
-  // componentDidUpdate(prevState) {
-  //   if (this.state.dateTo !== prevState.dateTo) {
-  //     this.props.requestTeamCalendar(this.props.id, this.state.dateFrom, this.state.dateTo);
-  //   }
-  // }
-
   render() {
     return (
       <div className={s.top_row}>
@@ -64,4 +59,6 @@ let mapStateToProps = (state) => {
     nameSelectedTeam: state.teamsCalendar.nameSelectedTeam,
   };
 };
-export default compose(connect(mapStateToProps, { requestTeamCalendar }))(TeamsCalendarContainer);
+export default compose(
+  connect(mapStateToProps, { requestTeamCalendar, setSelectedDateFrom, setSelectedDateTo })
+)(TeamsCalendarContainer);
