@@ -36,12 +36,12 @@ class LeaguesCalendarContainer extends React.Component {
             Показать, начиная с:
             <DatePicker
               onChange={this.handleDateFromChange.bind(this)}
-              defaultValue={moment(this.props.dateFrom, 'YYYY-MM-DD')}
+              // defaultValue={moment(this.props.dateFrom, 'YYYY-MM-DD')}
             />{' '}
             до:{' '}
             <DatePicker
               onChange={this.handleDateToChange.bind(this)}
-              defaultValue={moment(this.props.dateTo, 'YYYY-MM-DD')}
+              // defaultValue={moment(this.props.dateTo, 'YYYY-MM-DD')}
             />
           </Space>
           {/* <SelectAvailableLeague /> */}

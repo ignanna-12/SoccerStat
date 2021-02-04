@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import s from './LeaguesCalendar.module.scss';
 import { Select } from 'antd';
-import { setSelectedLeague } from './../../redux/user-setting-reducer';
+import { setSelectedLeague } from './../../redux/leagues-calendar-reducer';
 import store from './../../redux/redux-store';
-import { render } from '@testing-library/react';
 
 const { Option } = Select;
 
@@ -41,7 +40,7 @@ class SelectAvailableLeague extends React.Component {
 }
 let mapStateToProps = (state) => {
   return {
-    selectedLeague: state.userSetting.selectedLeague,
+    selectedLeague: state.leaguesCalendar.selectedLeague,
   };
 };
 

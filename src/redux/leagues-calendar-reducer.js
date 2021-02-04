@@ -11,8 +11,8 @@ let initialState = {
   homeTeam: '',
   awayTeam: '',
   selectedLeague: '',
-  selectedDateFrom: moment().subtract(1, 'years').format('YYYY-MM-DD'),
-  selectedDateTo: moment().subtract(-1, 'years').format('YYYY-MM-DD'),
+  selectedDateFrom: '', //moment().subtract(1, 'years').format('YYYY-MM-DD'),
+  selectedDateTo: '', //moment().subtract(-1, 'years').format('YYYY-MM-DD'),
 };
 
 const leaguesCalendarReducer = (state = initialState, action) => {

@@ -1,11 +1,7 @@
 import { getCompetitions } from '../api/api';
 
 let initialState = {
-  competitions: [
-    { id: 1, name: 'Лига1' },
-    { id: 2, name: 'Лига2' },
-    { id: 3, name: 'Лига3' },
-  ],
+  competitions: [],
   totalLeaguesCount: 3,
   currentSeason: { endDate: null },
   season: '2019',

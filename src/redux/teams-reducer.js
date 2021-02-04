@@ -1,11 +1,7 @@
 import { getTeams } from '../api/api';
 
 let initialState = {
-  teams: [
-    { id: 1, name: 'Команда1' },
-    { id: 2, name: 'Команда2' },
-    { id: 3, name: 'Команда3' },
-  ],
+  teams: [],
   totalTeamsCount: 3,
   year: 2000,
 };
