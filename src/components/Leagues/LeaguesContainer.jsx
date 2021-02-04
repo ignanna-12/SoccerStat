@@ -5,7 +5,11 @@ import { compose } from 'redux';
 import { Input } from 'antd';
 import s from './Leagues.module.scss';
 const { Search } = Input;
-import { requestCompetitions, selectCompetitionsByYear } from './../../redux/leagues-reducer';
+import {
+  requestCompetitions,
+  selectCompetitionsByYear,
+  setFilterValue,
+} from './../../redux/leagues-reducer';
 
 const filterLeagues = (competitions, filterValue) => {
   if (filterValue === '') {
@@ -23,6 +27,7 @@ class LeaguesContainer extends React.Component {
     this.state = { filterValue: '' };
   }
   componentDidMount() {
+    this.props.setFilterValue(this.state.filterValue);
     this.props.requestCompetitions();
   }
   render() {
@@ -51,7 +56,10 @@ let mapStateToProps = (state) => {
     competitions: state.leaguesPage.competitions,
     totalLeaguesCount: state.leaguesPage.totalLeaguesCount,
     season: state.userSetting.season,
+    filterValue: state.leaguesPage.filterValue,
   };
 };
 
-export default compose(connect(mapStateToProps, { requestCompetitions }))(LeaguesContainer);
+export default compose(connect(mapStateToProps, { requestCompetitions, setFilterValue }))(
+  LeaguesContainer
+);

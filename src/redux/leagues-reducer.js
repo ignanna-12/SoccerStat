@@ -9,6 +9,7 @@ let initialState = {
   totalLeaguesCount: 3,
   currentSeason: { endDate: null },
   season: '2019',
+  filterValue: 'M',
 };
 
 const leaguesReducer = (state = initialState, action) => {
@@ -22,6 +23,9 @@ const leaguesReducer = (state = initialState, action) => {
     case 'SET_SEASON': {
       return { ...state, season: action.season };
     }
+    case 'SET_FILTER_VALUE': {
+      return { ...state, filterValue: action.filterValue };
+    }
     default:
       return state;
   }
@@ -33,6 +37,7 @@ export const setTotalLeaguesCount = (totalLeaguesCount) => ({
   totalLeaguesCount,
 });
 export const setYear = (year) => ({ type: 'SET_YEAR', year });
+export const setFilterValue = (filterValue) => ({ type: 'SET_FILTER_VALUE', filterValue });
 
 export const requestCompetitions = () => {
   return async (dispatch) => {

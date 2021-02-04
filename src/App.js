@@ -19,10 +19,10 @@ function App() {
       <Header />
       <NavbarContainer />
       <div className="app-wrapper-content">
-        <Route path="/Leagues/:season?" component={LeaguesContainer} />
-        <Route path="/Teams" component={TeamsContainer} />
+        <Route path="/Leagues/:season?/:filterValue?" component={LeaguesContainer} />
+        <Route path="/Teams/:filterValue?" component={TeamsContainer} />
         <Route path="/LeagueCalendar/:id?" component={LeaguesCalendarContainer} />
-        <Route path="/TeamCalendar/:id?" component={TeamsCalendarContainer} />
+        <Route path="/TeamCalendar/:id?/:team?" component={TeamsCalendarContainer} />
       </div>
     </div>
   );

@@ -2,10 +2,10 @@ import React from 'react';
 import s from './Navbar.module.css';
 import { NavLink } from 'react-router-dom';
 
-const Navbar = ({ season }) => {
+const Navbar = ({ season, filterValueL }) => {
   return (
     <div className={s.block_buttons}>
-      <NavLink to={'/Leagues/' + season}>
+      <NavLink to={'/Leagues/' + season + '/' + filterValueL}>
         <button className={s.button}>СПИСОК ЛИГ</button>
       </NavLink>
       <NavLink to="/Teams">

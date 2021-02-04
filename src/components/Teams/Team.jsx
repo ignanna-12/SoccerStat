@@ -13,7 +13,7 @@ let Team = ({ team, crestUrl, id }) => {
   return (
     <NavLink
       className={s.team_row}
-      to={'/TeamCalendar/' + id}
+      to={'/TeamCalendar/' + id + '/' + team}
       onClick={(e) => {
         handleChange(id, team);
       }}

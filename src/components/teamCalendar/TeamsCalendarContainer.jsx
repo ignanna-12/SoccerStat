@@ -44,7 +44,7 @@ class TeamsCalendarContainer extends React.Component {
             />
           </Space>
         </div>
-        <TeamCalendar matches={this.props.matches} name={this.props.nameSelectedTeam} />
+        <TeamCalendar matches={this.props.matches} name={this.props.match.params.team} />
       </div>
     );
   }
