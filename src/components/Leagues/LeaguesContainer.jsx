@@ -10,6 +10,7 @@ import {
   selectCompetitionsByYear,
   setFilterValue,
 } from './../../redux/leagues-reducer';
+import { setSeason } from '../../redux/user-setting-reducer';
 
 const filterLeagues = (competitions, filterValue) => {
   if (filterValue === '') {
@@ -24,11 +25,20 @@ const filterLeagues = (competitions, filterValue) => {
 class LeaguesContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { filterValue: '' };
+    this.state = {
+      filterValue: '',
+      season: this.props.match.params.season ? this.props.match.params.season : '2021',
+    };
   }
   componentDidMount() {
-    this.props.setFilterValue(this.state.filterValue);
     this.props.requestCompetitions();
+    //this.setState({ filterValue: this.props.match.params.filterValue });
+    //this.props.setSeason(this.props.match.params.season);
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.season !== prevProps.season) {
+      this.setState({ season: this.props.season });
+    }
   }
   render() {
     return (
@@ -42,7 +52,7 @@ class LeaguesContainer extends React.Component {
         <Leagues
           count={this.props.totalLeaguesCount}
           competitions={filterLeagues(
-            selectCompetitionsByYear(this.props.season, this.props.competitions),
+            selectCompetitionsByYear(this.state.season, this.props.competitions),
             this.state.filterValue
           )}
         />
@@ -60,6 +70,6 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default compose(connect(mapStateToProps, { requestCompetitions, setFilterValue }))(
-  LeaguesContainer
-);
+export default compose(
+  connect(mapStateToProps, { requestCompetitions, setFilterValue, setSeason })
+)(LeaguesContainer);

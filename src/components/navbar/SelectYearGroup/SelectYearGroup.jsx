@@ -9,13 +9,18 @@ import store from '../../../redux/redux-store';
 const { Option } = Select;
 
 const handleChange = (value) => {
-  store.dispatch(setSeason(value));
+  //store.dispatch(setSeason(value));
 };
 
 class SelectYearGroup extends React.Component {
   componentDidMount() {
-    this.props.setSeason(this.props.season);
+    store.dispatch(setSeason(this.props.season));
   }
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.season !== prevProps.season) {
+  //     store.dispatch(setSeason(this.props.season));
+  //   }
+  // }
   render() {
     return (
       <div className={s.block}>
@@ -33,7 +38,7 @@ class SelectYearGroup extends React.Component {
           <Option value="2017">2017</Option>
           <Option value="2018">2018</Option>
           <Option value="2019">2019</Option>
-          <Option value="2019">2020</Option>
+          <Option value="2020">2020</Option>
           <Option value="2021">2021</Option>
         </Select>
       </div>

@@ -5,7 +5,7 @@ let initialState = {
   totalLeaguesCount: 3,
   currentSeason: { endDate: null },
   season: '2019',
-  filterValue: 'M',
+  filterValue: '',
 };
 
 const leaguesReducer = (state = initialState, action) => {

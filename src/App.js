@@ -19,6 +19,7 @@ function App() {
       <Header />
       <NavbarContainer />
       <div className="app-wrapper-content">
+        <Route exact path="/" component={LeaguesContainer} />
         <Route path="/Leagues/:season?/:filterValue?" component={LeaguesContainer} />
         <Route path="/Teams/:filterValue?" component={TeamsContainer} />
         <Route path="/LeagueCalendar/:id?" component={LeaguesCalendarContainer} />
