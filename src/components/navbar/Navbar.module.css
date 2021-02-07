@@ -8,11 +8,6 @@
     display: flex;
     font-size: 150px;
   }
-  
-  .block__select {
-    display: flex;
-  }
-  
   .block .button {
     border-radius: 50px;
     border-color: navy;

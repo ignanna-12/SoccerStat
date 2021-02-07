@@ -8,7 +8,6 @@ let Teams = (props) => {
       {props.teams.map((t) => (
         <Team team={t.name} key={t.id} crestUrl={t.crestUrl} id={t.id} />
       ))}
-      {/* {props.count} */}
     </div>
   );
 };

@@ -18,14 +18,18 @@ class NavbarContainer extends React.Component {
   componentDidMount() {
     this.props.setSeason(this.props.season);
     this.setState({
-      currentSeason: this.props.match ? this.props.match.params.season : this.props.season,
+      currentSeason: this.props.match.params.season
+        ? this.props.match.params.season
+        : this.props.season,
     });
     this.props.setFilterValue(this.props.filterValueL);
   }
   componentDidUpdate(prevProps) {
     if (this.props.season !== prevProps.season) {
       this.setState({
-        currentSeason: this.props.match ? this.props.match.params.season : this.props.season,
+        currentSeason: this.props.match.params.season
+          ? this.props.match.params.season
+          : this.props.season,
       });
       this.props.setSeason(this.props.season);
     }

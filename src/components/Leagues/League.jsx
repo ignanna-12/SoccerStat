@@ -5,7 +5,7 @@ import s from './Leagues.module.scss';
 import { setSelectedLeague } from '../../redux/leagues-calendar-reducer';
 import unitedFlag from '../../images/all-poker-rooms.png';
 
-let League = ({ competition, season, id, ensignUrl }) => {
+let League = ({ competition, id, ensignUrl }) => {
   const handleChange = (e) => {
     store.dispatch(setSelectedLeague(e));
   };

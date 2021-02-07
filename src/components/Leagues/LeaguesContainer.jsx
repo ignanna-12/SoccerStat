@@ -11,6 +11,7 @@ import {
   setFilterValue,
 } from './../../redux/leagues-reducer';
 import { setSeason } from '../../redux/user-setting-reducer';
+import { browserHistory } from 'react-router';
 
 const filterLeagues = (competitions, filterValue) => {
   if (filterValue === '') {

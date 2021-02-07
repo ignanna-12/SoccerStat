@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-//import { requestTeams, getTeamsFromReducer } from '../../Redux/teams-reducer';
 import Teams from './Teams';
 import { compose } from 'redux';
-import { Input, Space } from 'antd';
+import { Input } from 'antd';
 import s from './Teams.module.scss';
 const { Search } = Input;
 import { requestTeams } from '../../redux/teams-reducer';

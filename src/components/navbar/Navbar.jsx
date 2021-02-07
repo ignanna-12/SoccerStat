@@ -3,11 +3,6 @@ import s from './Navbar.module.css';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = ({ season, filterValueL }) => {
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.season !== prevProps.season) {
-  //     this.setState({ season: this.props.season });
-  //   }
-  // }
   return (
     <div className={s.block_buttons}>
       <NavLink to={'/Leagues/' + season + '/' + filterValueL}>

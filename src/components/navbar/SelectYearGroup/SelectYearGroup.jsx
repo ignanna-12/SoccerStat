@@ -9,18 +9,18 @@ import store from '../../../redux/redux-store';
 const { Option } = Select;
 
 const handleChange = (value) => {
-  //store.dispatch(setSeason(value));
+  store.dispatch(setSeason(value));
 };
 
 class SelectYearGroup extends React.Component {
   componentDidMount() {
     store.dispatch(setSeason(this.props.season));
   }
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.season !== prevProps.season) {
-  //     store.dispatch(setSeason(this.props.season));
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    if (this.props.season !== prevProps.season) {
+      store.dispatch(setSeason(this.props.season));
+    }
+  }
   render() {
     return (
       <div className={s.block}>
