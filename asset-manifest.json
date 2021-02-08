@@ -1,28 +1,27 @@
 {
   "files": {
-    "main.css": "/SoccerStat/static/css/main.c875cd41.chunk.css",
-    "main.js": "/SoccerStat/static/js/main.7e25c286.chunk.js",
-    "main.js.map": "/SoccerStat/static/js/main.7e25c286.chunk.js.map",
-    "runtime-main.js": "/SoccerStat/static/js/runtime-main.ce7810c3.js",
-    "runtime-main.js.map": "/SoccerStat/static/js/runtime-main.ce7810c3.js.map",
+    "main.css": "/SoccerStat/static/css/main.18699bb6.chunk.css",
+    "main.js": "/SoccerStat/static/js/main.e9923c1a.chunk.js",
+    "main.js.map": "/SoccerStat/static/js/main.e9923c1a.chunk.js.map",
+    "runtime-main.js": "/SoccerStat/static/js/runtime-main.d755529d.js",
+    "runtime-main.js.map": "/SoccerStat/static/js/runtime-main.d755529d.js.map",
     "static/css/2.b72b1a0e.chunk.css": "/SoccerStat/static/css/2.b72b1a0e.chunk.css",
-    "static/js/2.6362bccd.chunk.js": "/SoccerStat/static/js/2.6362bccd.chunk.js",
-    "static/js/2.6362bccd.chunk.js.map": "/SoccerStat/static/js/2.6362bccd.chunk.js.map",
-    "static/js/3.8fd1b3c1.chunk.js": "/SoccerStat/static/js/3.8fd1b3c1.chunk.js",
-    "static/js/3.8fd1b3c1.chunk.js.map": "/SoccerStat/static/js/3.8fd1b3c1.chunk.js.map",
+    "static/js/2.9f421e9a.chunk.js": "/SoccerStat/static/js/2.9f421e9a.chunk.js",
+    "static/js/2.9f421e9a.chunk.js.map": "/SoccerStat/static/js/2.9f421e9a.chunk.js.map",
+    "static/js/3.704d959b.chunk.js": "/SoccerStat/static/js/3.704d959b.chunk.js",
+    "static/js/3.704d959b.chunk.js.map": "/SoccerStat/static/js/3.704d959b.chunk.js.map",
     "index.html": "/SoccerStat/index.html",
     "static/css/2.b72b1a0e.chunk.css.map": "/SoccerStat/static/css/2.b72b1a0e.chunk.css.map",
-    "static/css/main.c875cd41.chunk.css.map": "/SoccerStat/static/css/main.c875cd41.chunk.css.map",
-    "static/js/2.6362bccd.chunk.js.LICENSE.txt": "/SoccerStat/static/js/2.6362bccd.chunk.js.LICENSE.txt",
+    "static/css/main.18699bb6.chunk.css.map": "/SoccerStat/static/css/main.18699bb6.chunk.css.map",
+    "static/js/2.9f421e9a.chunk.js.LICENSE.txt": "/SoccerStat/static/js/2.9f421e9a.chunk.js.LICENSE.txt",
     "static/media/all-poker-rooms.957bdc3f.png": "/SoccerStat/static/media/all-poker-rooms.957bdc3f.png",
-    "static/media/header1.bf29f148.jpg": "/SoccerStat/static/media/header1.bf29f148.jpg",
-    "static/media/logo.6ce24c58.svg": "/SoccerStat/static/media/logo.6ce24c58.svg"
+    "static/media/header1.bf29f148.jpg": "/SoccerStat/static/media/header1.bf29f148.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ce7810c3.js",
+    "static/js/runtime-main.d755529d.js",
     "static/css/2.b72b1a0e.chunk.css",
-    "static/js/2.6362bccd.chunk.js",
-    "static/css/main.c875cd41.chunk.css",
-    "static/js/main.7e25c286.chunk.js"
+    "static/js/2.9f421e9a.chunk.js",
+    "static/css/main.18699bb6.chunk.css",
+    "static/js/main.e9923c1a.chunk.js"
   ]
 }
