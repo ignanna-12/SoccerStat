@@ -24,7 +24,7 @@ class LeaguesContainer extends React.Component {
     super(props);
     this.state = {
       filterValue: '',
-      season: this.props.match.params.season ? this.props.match.params.season : '',
+      season: this.props.match.params.season ? this.props.match.params.season : '2021',
     };
   }
   componentDidMount() {
