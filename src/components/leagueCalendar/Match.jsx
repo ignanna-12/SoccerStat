@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './LeaguesCalendar.module.scss';
+import PropTypes from 'prop-types';
 
 let Match = ({ homeTeam, awayTeam, date }) => {
   var months = [
@@ -28,6 +29,12 @@ let Match = ({ homeTeam, awayTeam, date }) => {
       </p>
     </div>
   );
+};
+
+Match.propTypes = {
+  date: PropTypes.string,
+  homeTeam: PropTypes.string,
+  awayTeam: PropTypes.string,
 };
 
 export default Match;

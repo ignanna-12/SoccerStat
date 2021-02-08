@@ -10,6 +10,7 @@ import TeamCalendar from './TeamCalendar';
 import { DatePicker, Space } from 'antd';
 import s from './TeamsCalendar.module.scss';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 class TeamsCalendarContainer extends React.Component {
   handleDateFromChange(object, string) {
@@ -59,6 +60,18 @@ let mapStateToProps = (state) => {
     nameSelectedTeam: state.teamsCalendar.nameSelectedTeam,
   };
 };
+
+TeamsCalendarContainer.propTypes = {
+  requestTeamCalendar: PropTypes.function,
+  id: PropTypes.string,
+  dateTo: PropTypes.string,
+  setSelectedDateFrom: PropTypes.function,
+  dateFrom: PropTypes.string,
+  setSelectedDateTo: PropTypes.function,
+  match: PropTypes.objectOf(PropTypes.string),
+  matches: PropTypes.object,
+};
+
 export default compose(
   connect(mapStateToProps, { requestTeamCalendar, setSelectedDateFrom, setSelectedDateTo })
 )(TeamsCalendarContainer);

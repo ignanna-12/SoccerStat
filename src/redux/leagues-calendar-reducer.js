@@ -1,5 +1,4 @@
 import { getLeagueCalendar } from '../api/api';
-import moment from 'moment';
 
 let initialState = {
   matches: [],
@@ -11,8 +10,8 @@ let initialState = {
   homeTeam: '',
   awayTeam: '',
   selectedLeague: '',
-  selectedDateFrom: '', //moment().subtract(1, 'years').format('YYYY-MM-DD'),
-  selectedDateTo: '', //moment().subtract(-1, 'years').format('YYYY-MM-DD'),
+  selectedDateFrom: '',
+  selectedDateTo: '',
 };
 
 const leaguesCalendarReducer = (state = initialState, action) => {
@@ -23,7 +22,6 @@ const leaguesCalendarReducer = (state = initialState, action) => {
         matches: action.matches,
       };
     }
-
     case 'SET_LEAGUES_NAME': {
       return {
         ...state,

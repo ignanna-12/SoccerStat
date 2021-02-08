@@ -4,6 +4,7 @@ import s from './Teams.module.scss';
 import unitedFlag from '../../images/all-poker-rooms.png';
 import store from '../../redux/redux-store';
 import { setSelectedTeam, setNameSelectedTeam } from '../../redux/teams-calendar-reducer';
+import PropTypes from 'prop-types';
 
 let Team = ({ team, crestUrl, id }) => {
   const handleChange = (id, team) => {
@@ -22,6 +23,12 @@ let Team = ({ team, crestUrl, id }) => {
       <img className={s.img} src={crestUrl || unitedFlag}></img>
     </NavLink>
   );
+};
+
+Team.propTypes = {
+  team: PropTypes.string,
+  crestUrl: PropTypes.string,
+  id: PropTypes.string,
 };
 
 export default Team;

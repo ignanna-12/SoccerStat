@@ -5,13 +5,9 @@ import { compose } from 'redux';
 import { Input } from 'antd';
 import s from './Leagues.module.scss';
 const { Search } = Input;
-import {
-  requestCompetitions,
-  selectCompetitionsByYear,
-  setFilterValue,
-} from './../../redux/leagues-reducer';
+import { requestCompetitions, selectCompetitionsByYear } from './../../redux/leagues-reducer';
 import { setSeason } from '../../redux/user-setting-reducer';
-import { browserHistory } from 'react-router';
+import PropTypes from 'prop-types';
 
 const filterLeagues = (competitions, filterValue) => {
   if (filterValue === '') {
@@ -28,17 +24,21 @@ class LeaguesContainer extends React.Component {
     super(props);
     this.state = {
       filterValue: '',
-      season: this.props.match.params.season ? this.props.match.params.season : '2021',
+      season: this.props.match.params.season ? this.props.match.params.season : '',
     };
   }
   componentDidMount() {
     this.props.requestCompetitions();
-    //this.setState({ filterValue: this.props.match.params.filterValue });
-    //this.props.setSeason(this.props.match.params.season);
+    if (this.props.history.location.search) {
+      this.setState({ filterValue: `${this.props.history.location.search.split('=')[1]}` });
+    }
   }
   componentDidUpdate(prevProps) {
     if (this.props.season !== prevProps.season) {
       this.setState({ season: this.props.season });
+      this.props.history.push({
+        pathname: '/Leagues/' + this.props.season,
+      });
     }
   }
   render() {
@@ -47,11 +47,22 @@ class LeaguesContainer extends React.Component {
         <Search
           className={s.search}
           placeholder="Название лиги"
-          onChange={(e) => this.setState({ filterValue: e.target.value.toLowerCase() })}
+          onChange={(e) => {
+            if (e.target.value.toLowerCase() !== '') {
+              this.props.history.push({
+                pathname: '/Leagues/' + this.state.season,
+                search: `?search=${e.target.value.toLowerCase()}`,
+              });
+            } else {
+              this.props.history.push({
+                pathname: '/Leagues/' + this.state.season,
+              });
+            }
+            this.setState({ filterValue: e.target.value.toLowerCase() });
+          }}
           enterButton
         />
         <Leagues
-          count={this.props.totalLeaguesCount}
           competitions={filterLeagues(
             selectCompetitionsByYear(this.state.season, this.props.competitions),
             this.state.filterValue
@@ -65,12 +76,18 @@ class LeaguesContainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     competitions: state.leaguesPage.competitions,
-    totalLeaguesCount: state.leaguesPage.totalLeaguesCount,
     season: state.userSetting.season,
-    filterValue: state.leaguesPage.filterValue,
   };
 };
 
-export default compose(
-  connect(mapStateToProps, { requestCompetitions, setFilterValue, setSeason })
-)(LeaguesContainer);
+LeaguesContainer.propTypes = {
+  competitions: PropTypes.object,
+  season: PropTypes.string,
+  requestCompetitions: PropTypes.function,
+  match: PropTypes.objectOf(PropTypes.string),
+  history: PropTypes.objectOf(PropTypes.string),
+};
+
+export default compose(connect(mapStateToProps, { requestCompetitions, setSeason }))(
+  LeaguesContainer
+);

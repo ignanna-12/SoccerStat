@@ -2,8 +2,6 @@ let initialState = {
   season: '2021',
   selectedTeam: '57',
   selectedLeague: '2001',
-  selectedDateFrom: '',
-  selectedDateTo: '',
 };
 
 const userSettingReducer = (state = initialState, action) => {
@@ -16,12 +14,6 @@ const userSettingReducer = (state = initialState, action) => {
     }
     case 'SET_SELECTED_TEAM': {
       return { ...state, selectedTeam: action.selectedTeam };
-    }
-    case 'SET_SELECTED_DATE_FROM': {
-      return { ...state, selectedDateFrom: action.selectedDateFrom };
-    }
-    case 'SET_SELECTED_DATE_TO': {
-      return { ...state, selectedDateTo: action.selectedDateTo };
     }
     default:
       return state;
@@ -36,13 +28,5 @@ export const setSelectedLeague = (selectedLeague) => ({
 export const setSelectedTeam = (selectedTeam) => ({
   type: 'SET_SELECTED_TEAM',
   selectedTeam,
-});
-export const setSelectedDateFrom = (selectedDateFrom) => ({
-  type: 'SET_SELECTED_DATE_FROM',
-  selectedDateFrom,
-});
-export const setSelectedDateTo = (selectedDateTo) => ({
-  type: 'SET_SELECTED_DATE_TO',
-  selectedDateTo,
 });
 export default userSettingReducer;

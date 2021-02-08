@@ -1,6 +1,7 @@
 import React from 'react';
 import Team from './Team';
 import s from './Teams.module.scss';
+import PropTypes from 'prop-types';
 
 let Teams = (props) => {
   return (
@@ -11,4 +12,9 @@ let Teams = (props) => {
     </div>
   );
 };
+
+Teams.propTypes = {
+  teams: PropTypes.object,
+};
+
 export default Teams;

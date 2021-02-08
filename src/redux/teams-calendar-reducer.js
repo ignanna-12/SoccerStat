@@ -9,7 +9,6 @@ let initialState = {
   utcDate: '',
   homeTeam: '',
   awayTeam: '',
-  status: '',
   selectedTeam: '57',
   selectedDateFrom: moment().subtract(1, 'years').format('YYYY-MM-DD'),
   selectedDateTo: moment().subtract(-1, 'years').format('YYYY-MM-DD'),

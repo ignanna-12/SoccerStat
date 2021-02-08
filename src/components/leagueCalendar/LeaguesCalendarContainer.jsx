@@ -9,8 +9,7 @@ import {
 import LeagueCalendar from './LeagueCalendar';
 import { DatePicker, Space } from 'antd';
 import s from './LeaguesCalendar.module.scss';
-import SelectAvailableLeague from './SelectAvailableLeague';
-import moment from 'moment';
+import PropTypes from 'prop-types';
 
 class LeaguesCalendarContainer extends React.Component {
   handleDateFromChange(object, string) {
@@ -34,17 +33,9 @@ class LeaguesCalendarContainer extends React.Component {
         <div>
           <Space direction="vertical" className={s.search}>
             Показать, начиная с:
-            <DatePicker
-              onChange={this.handleDateFromChange.bind(this)}
-              // defaultValue={moment(this.props.dateFrom, 'YYYY-MM-DD')}
-            />{' '}
-            до:{' '}
-            <DatePicker
-              onChange={this.handleDateToChange.bind(this)}
-              // defaultValue={moment(this.props.dateTo, 'YYYY-MM-DD')}
-            />
+            <DatePicker onChange={this.handleDateFromChange.bind(this)} /> до:{' '}
+            <DatePicker onChange={this.handleDateToChange.bind(this)} />
           </Space>
-          {/* <SelectAvailableLeague /> */}
         </div>
         <LeagueCalendar name={this.props.name} matches={this.props.matches} />
       </div>
@@ -60,6 +51,18 @@ let mapStateToProps = (state) => {
     dateFrom: state.leaguesCalendar.selectedDateFrom,
     dateTo: state.leaguesCalendar.selectedDateTo,
   };
+};
+
+LeaguesCalendarContainer.propTypes = {
+  requestLeagueCalendar: PropTypes.function,
+  id: PropTypes.string,
+  dateTo: PropTypes.string,
+  setSelectedDateFrom: PropTypes.function,
+  dateFrom: PropTypes.string,
+  setSelectedDateTo: PropTypes.function,
+  match: PropTypes.objectOf(PropTypes.string),
+  matches: PropTypes.object,
+  name: PropTypes.string,
 };
 
 export default compose(

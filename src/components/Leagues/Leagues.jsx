@@ -1,6 +1,7 @@
 import React from 'react';
 import League from './League';
 import s from './Leagues.module.scss';
+import PropTypes from 'prop-types';
 
 let Leagues = (props) => {
   return (
@@ -12,4 +13,9 @@ let Leagues = (props) => {
     </div>
   );
 };
+
+Leagues.propTypes = {
+  competitions: PropTypes.object,
+};
+
 export default Leagues;

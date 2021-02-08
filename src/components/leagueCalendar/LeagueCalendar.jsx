@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './LeaguesCalendar.module.scss';
 import Match from './Match';
+import PropTypes from 'prop-types';
 
 const LeagueCalendar = ({ name, matches }) => {
   return (
@@ -11,6 +12,11 @@ const LeagueCalendar = ({ name, matches }) => {
       ))}
     </div>
   );
+};
+
+LeagueCalendar.propTypes = {
+  name: PropTypes.string,
+  matches: PropTypes.object,
 };
 
 export default LeagueCalendar;

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import s from './Navbar.module.css';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const Navbar = ({ season, filterValueL }) => {
+const Navbar = ({ season }) => {
   return (
     <div className={s.block_buttons}>
-      <NavLink to={'/Leagues/' + season + '/' + filterValueL}>
+      <NavLink to={'/Leagues/' + season}>
         <button className={s.button}>СПИСОК ЛИГ</button>
       </NavLink>
       <NavLink to="/Teams">
@@ -20,4 +21,9 @@ const Navbar = ({ season, filterValueL }) => {
     </div>
   );
 };
+
+Navbar.propTypes = {
+  season: PropTypes.string,
+};
+
 export default Navbar;

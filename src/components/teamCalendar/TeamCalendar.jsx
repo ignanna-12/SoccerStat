@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './TeamsCalendar.module.scss';
 import Match from './Match';
+import PropTypes from 'prop-types';
 
 const TeamCalendar = ({ name, matches }) => {
   return (
@@ -11,6 +12,11 @@ const TeamCalendar = ({ name, matches }) => {
       ))}
     </div>
   );
+};
+
+TeamCalendar.propTypes = {
+  name: PropTypes.string,
+  matches: PropTypes.object,
 };
 
 export default TeamCalendar;

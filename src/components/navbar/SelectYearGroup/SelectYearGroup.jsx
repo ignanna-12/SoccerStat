@@ -5,6 +5,7 @@ import s from './SelectYearGroup.module.scss';
 import { Select } from 'antd';
 import { setSeason } from '../../../redux/user-setting-reducer';
 import store from '../../../redux/redux-store';
+import PropTypes from 'prop-types';
 
 const { Option } = Select;
 
@@ -13,14 +14,6 @@ const handleChange = (value) => {
 };
 
 class SelectYearGroup extends React.Component {
-  componentDidMount() {
-    store.dispatch(setSeason(this.props.season));
-  }
-  componentDidUpdate(prevProps) {
-    if (this.props.season !== prevProps.season) {
-      store.dispatch(setSeason(this.props.season));
-    }
-  }
   render() {
     return (
       <div className={s.block}>
@@ -50,6 +43,10 @@ let mapStateToProps = (state) => {
   return {
     season: state.userSetting.season,
   };
+};
+
+SelectYearGroup.propTypes = {
+  season: PropTypes.string,
 };
 
 export default compose(connect(mapStateToProps, { setSeason }))(SelectYearGroup);

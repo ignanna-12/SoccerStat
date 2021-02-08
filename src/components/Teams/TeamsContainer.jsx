@@ -6,6 +6,7 @@ import { Input } from 'antd';
 import s from './Teams.module.scss';
 const { Search } = Input;
 import { requestTeams } from '../../redux/teams-reducer';
+import PropTypes from 'prop-types';
 
 const filterTeams = (teams, filterValue) => {
   if (filterValue === '') {
@@ -24,20 +25,33 @@ class TeamsContainer extends React.Component {
   }
   componentDidMount() {
     this.props.requestTeams();
+    if (this.props.history.location.search) {
+      this.setState({ filterValue: `${this.props.history.location.search.split('=')[1]}` });
+    }
   }
+
   render() {
     return (
       <div>
         <Search
           className={s.search}
           placeholder="Название команды"
-          onChange={(e) => this.setState({ filterValue: e.target.value.toLowerCase() })}
-          enterButton
+          defaultValue={this.state.filterValue}
+          onChange={(e) => {
+            if (e.target.value.toLowerCase() !== '') {
+              this.props.history.push({
+                pathname: '/Teams',
+                search: `?search=${e.target.value.toLowerCase()}`,
+              });
+            } else {
+              this.props.history.push({
+                pathname: '/Teams',
+              });
+            }
+            this.setState({ filterValue: e.target.value.toLowerCase() });
+          }}
         />
-        <Teams
-          count={this.props.totalTeamsCount}
-          teams={filterTeams(this.props.teams, this.state.filterValue)}
-        />
+        <Teams teams={filterTeams(this.props.teams, this.state.filterValue)} />
       </div>
     );
   }
@@ -48,6 +62,14 @@ let mapStateToProps = (state) => {
     teams: state.teamsPage.teams,
     totalTeamsCount: state.teamsPage.count,
   };
+};
+
+TeamsContainer.propTypes = {
+  teams: PropTypes.object,
+  season: PropTypes.string,
+  filterValue: PropTypes.string,
+  requestTeams: PropTypes.function,
+  history: PropTypes.objectOf(PropTypes.string),
 };
 
 export default compose(connect(mapStateToProps, { requestTeams }))(TeamsContainer);
