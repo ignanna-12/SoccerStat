@@ -21,11 +21,7 @@ class SelectYearGroup extends React.Component {
           Выберите <br />
           год
         </h3>
-        <Select
-          defaultValue={this.props.season}
-          style={{ width: 120, height: 32 }}
-          onChange={handleChange}
-        >
+        <Select defaultValue={this.props.season} className={s.select} onChange={handleChange}>
           <Option value="2015">2015</Option>
           <Option value="2016">2016</Option>
           <Option value="2017">2017</Option>

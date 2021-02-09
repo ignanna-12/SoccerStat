@@ -22,7 +22,7 @@ class LeaguesCalendarContainer extends React.Component {
   }
   componentDidMount() {
     this.props.requestLeagueCalendar(
-      this.props.match.params.id,
+      this.props.match.params.id ? this.props.match.params.id : '2001',
       this.props.dateFrom,
       this.props.dateTo
     );

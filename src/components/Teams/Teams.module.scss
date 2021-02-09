@@ -20,7 +20,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 10px;
-    font-size: 16px;
+    font-size: medium;
     font-family: Impact;
     color:navy;
         }
@@ -28,3 +28,13 @@
     width: 50px;
     margin-left: 80px;
 }
+@media (max-width: 360px) {
+    .team_row{
+        font-size: small;
+    }
+    .img {
+        width: 30px;
+        height: 20px;
+        margin-left: 30px;
+    }
+  }

@@ -23,7 +23,7 @@ class TeamsCalendarContainer extends React.Component {
   }
   componentDidMount() {
     this.props.requestTeamCalendar(
-      this.props.match.params.id,
+      this.props.match.params.id ? this.props.match.params.id : '57',
       this.props.dateFrom,
       this.props.dateTo
     );

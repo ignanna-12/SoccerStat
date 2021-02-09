@@ -9,7 +9,7 @@ const Header = () => {
         SOCCER
         <br></br>STAT
       </h1>
-      <img src={h} className={s.img}></img>
+      {/* <img src={h} className={s.img}></img> */}
     </div>
   );
 };

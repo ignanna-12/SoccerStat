@@ -1,8 +1,8 @@
 import React from 'react';
-import s from './TeamsCalendar.module.scss';
+import s from './TableRow.module.scss';
 import PropTypes from 'prop-types';
 
-let Match = ({ homeTeam, awayTeam, date, striped }) => {
+let TableRow = ({ homeTeam, awayTeam, date, striped }) => {
   var months = [
     'января',
     'февраля',
@@ -33,11 +33,11 @@ let Match = ({ homeTeam, awayTeam, date, striped }) => {
   );
 };
 
-Match.propTypes = {
+TableRow.propTypes = {
   date: PropTypes.string,
   homeTeam: PropTypes.string,
   awayTeam: PropTypes.string,
   striped: PropTypes.bool,
 };
 
-export default Match;
+export default TableRow;

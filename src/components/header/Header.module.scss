@@ -1,8 +1,15 @@
 .block {
     grid-area: h;
     height: 200px;
+    max-width: 1200px;
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
+    background-image: url('../../images/header1.jpg');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+    justify-self: center;
+    width: 100%;
   }
   .block .h1 {
     text-align: left;
@@ -16,3 +23,45 @@
   .block .img {
     width: 800px;
   }
+
+  @media (max-width: 720px) {
+    .block {
+      height: 100px;
+      width: 100%;
+      justify-content: left;
+    }
+    .block .h1 {
+      text-align: left;
+      color: navy;
+      font-family: Impact;
+      font-size: 50px ;
+      line-height: 40px;
+      margin: 10px 0px 0px 20px;
+    }
+    .block .img {
+      width: 320px;
+      height: 80px;
+    }    
+  }
+
+  @media (max-width: 360px) {
+    .block {
+      height: 60px;
+      width: 100%;
+      justify-content: left;
+    }
+    .block .h1 {
+      text-align: left;
+      color: navy;
+      font-family: Impact;
+      font-size: 30px ;
+      line-height: 25px;
+      margin: 5px 0px 0px 20px;
+    }
+    .block .img {
+      width: 210px;
+      height: 55px;
+    }    
+  }
+
+  

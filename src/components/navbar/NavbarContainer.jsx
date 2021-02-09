@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import s from './Navbar.module.css';
+import s from './Navbar.module.scss';
 import { setSeason } from '../../redux/user-setting-reducer';
 import Navbar from './Navbar';
 import SelectYearGroup from './SelectYearGroup/SelectYearGroup';

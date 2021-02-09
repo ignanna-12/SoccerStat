@@ -1,0 +1,38 @@
+.m {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-family: cursive;
+    color: navy;
+    font-size: medium;
+    text-align: left;
+}
+.m_striped {
+    @extend .m;
+    background-color: #ddf;
+}
+.name_column {
+    width: 180px;
+}
+.date{
+    @extend .name_column;
+    font-size: small;
+}
+@media (max-width: 720px) {
+    .m {
+        margin-bottom: 5px;
+        font-size: small;
+    }
+    .name_column {
+        width: 90px;
+    }
+}
+@media (max-width: 360px) {
+    .m {
+        font-size: small;
+    }
+    .name_column {
+        width: 70px;
+    }
+}
