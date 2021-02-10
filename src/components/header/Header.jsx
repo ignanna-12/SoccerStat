@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './Header.module.scss';
-import h from '../../images/header1.jpg';
 
 const Header = () => {
   return (
@@ -9,7 +8,6 @@ const Header = () => {
         SOCCER
         <br></br>STAT
       </h1>
-      {/* <img src={h} className={s.img}></img> */}
     </div>
   );
 };
