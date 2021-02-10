@@ -1,0 +1,46 @@
+.blocks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-family: cursive;
+    color: navy;
+    font-size: medium;
+    text-align: left;
+}
+.search {
+    width: 200px;
+    color: navy;
+}
+.img {
+    width: 50px;
+    margin-left: 80px;
+}
+.league_container {
+ display: flex;
+ flex-direction: column;
+ margin-top: 30px;
+}
+.league_row{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+margin-bottom: 10px;
+font-size: medium;
+font-family: Impact;
+color:navy;
+}
+
+@media (max-width: 360px) {
+    .blocks {
+        font-size: small;
+    }
+    .league_row{
+        font-size: small;
+    }
+    .img {
+        width: 30px;
+        height: 20px;
+        margin-left: 30px;
+    }
+  }

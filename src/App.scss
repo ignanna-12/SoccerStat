@@ -1,0 +1,24 @@
+.app-wrapper {
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas:
+  'h'
+  'n'
+  'c';
+  row-gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  
+}
+.app-wrapper-content {
+  grid-area: c;
+  display: flex;
+  justify-content: center;
+  margin-left: 10%; 
+}
+@media (max-width: 720px) {
+    .app-wrapper-content {
+      grid-area: c;
+      display: flex;
+      justify-content: left;      
+    }
+  }

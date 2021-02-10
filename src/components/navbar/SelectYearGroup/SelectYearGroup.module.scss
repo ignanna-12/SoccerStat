@@ -1,0 +1,25 @@
+.block {
+  display: flex;
+  margin-left: 10px;
+}
+.h3 {
+  color: navy;
+  font-family: Impact;
+  margin-right: 10px;
+  line-height: 15px;
+  font-size: 20px;
+}
+.select{
+  width: 120px;
+  height: 32px;
+}
+@media (max-width: 720px) {
+  .h3 {
+    line-height: 12px;
+    font-size: 12px;
+  }
+  .select{
+    width: 80px;
+    font-size: 12px;
+  }
+}

@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import 'antd/dist/antd.css';
+import React from 'react';
+import Header from './components/header/Header';
+import './App.scss';
+import { Route } from 'react-router-dom';
+import TeamsCalendarContainer from './components/teamCalendar/TeamsCalendarContainer';
+import TeamsContainer from './components/Teams/TeamsContainer';
+import LeaguesContainer from './components/Leagues/LeaguesContainer';
+import NavbarContainer from './components/navbar/NavbarContainer';
+import LeaguesCalendarContainer from './components/leagueCalendar/LeaguesCalendarContainer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-wrapper">
+      <Header />
+      <NavbarContainer />
+      <div className="app-wrapper-content">
+        <Route exact path="/SoccerStat" component={LeaguesContainer} />
+        <Route path="/Leagues/:season?/:filterValue?" component={LeaguesContainer} />
+        <Route path="/Teams/:filterValue?" component={TeamsContainer} />
+        <Route path="/LeagueCalendar/:id?" component={LeaguesCalendarContainer} />
+        <Route path="/TeamCalendar/:id?/:team?" component={TeamsCalendarContainer} />
+      </div>
     </div>
   );
 }

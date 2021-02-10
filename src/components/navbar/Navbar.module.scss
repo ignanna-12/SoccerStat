@@ -1,0 +1,49 @@
+.block {
+    grid-area: n;
+    display: flex;
+    flex-direction: row;    
+    margin: 0px 0px 0px 20px;
+    justify-content: center;      
+
+  }
+  .block__buttons {
+    display: flex;
+  }
+  .block .button {
+    border-radius: 50px;
+    border-color: navy;
+    width: 200px;
+    height: 50px;
+    border-width: 5px;
+    text-align: center;
+    color: navy;
+    font-family: Impact;
+    font-size: 16px;
+    line-height: 20px;
+    cursor: pointer;
+    margin: 0px 5px 5px 0px;
+    outline: none;
+    vertical-align: middle;
+  }
+  .block .button:hover {
+    background: cornflowerblue;
+    cursor: pointer;
+  }
+  .block .button:focus {
+    background: skyblue;
+    cursor: pointer;
+    outline: none;
+  }
+  @media (max-width: 720px) {
+    .block {
+      flex-direction: column;
+    }
+    .block .button {
+      border-radius: 20px;
+      width: 120px;
+      height: 30px;
+      border-width: 3px;
+      font-size: 12px;
+      line-height: 10px;
+    }
+  }
