@@ -3,20 +3,6 @@ import s from './TableRow.module.scss';
 import PropTypes from 'prop-types';
 
 let TableRow = ({ homeTeam, awayTeam, date, striped }) => {
-  var months = [
-    'января',
-    'февраля',
-    'марта',
-    'апреля',
-    'мая',
-    'июня',
-    'июля',
-    'августа',
-    'сентября',
-    'октября',
-    'ноября',
-    'декабря',
-  ];
   const D = new Date(date);
   const month_value = D.getMonth();
   const day_value = D.getDate();
